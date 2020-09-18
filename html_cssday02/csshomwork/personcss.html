@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人物动态特效</title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .outer{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* 将左边div块设计成白色的三角形 */
+        .left{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            border-style: solid;
+            border-width: 70px 150px;
+            /* transparent 跟父级状态保持一致*/
+            border-color: transparent transparent white white;
+        }
+
+
+        /* 将右边div块设计成绿色的三角形 */
+        .right{
+            position: absolute;
+            right: -400px;
+            bottom: 0;
+            border-style: solid;
+            border-width: 70px 120px;
+            /* transparent 跟父级状态保持一致*/
+            border-color: transparent teal teal transparent;
+            opacity: 0;
+            transition: all 3s linear;
+        }
+
+        /* 当图片获得焦点关注时，右边三角形显示并且移动到图片上 */
+        img:hover~.right{
+            right:0px;
+            opacity:1;
+        }
+
+    </style>
+</head>
+<body>
+<div class="outer">
+    <img src="image/image-20200912014251449.png"/>
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+</body>
+</html>

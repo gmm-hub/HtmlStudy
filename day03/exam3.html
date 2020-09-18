@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="array">
+    <option>--请选择--</option>
+</select>
+</body>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    var a = new Array("a","b","c","d");
+    $("#array").change(function () {
+        $.each(a,function (i,m) {
+            var $option = $("<option value='"+i+"'>"+m+"</option>");
+            $("#array").append($option);
+        })
+    });
+</script>
+</html>

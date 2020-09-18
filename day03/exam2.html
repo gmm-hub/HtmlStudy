@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery隐藏div</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            margin-bottom: auto;
+            border: 1px black solid;
+        }
+        .hi{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="sh">宇宙万岁</div>
+<input type="button" name="btn" id="btn" value="显示并改变颜色"/>
+<div class="hi">中国万岁</div>
+<div class="hi">世界万岁</div>
+<div class="hi">宇宙万岁</div>
+<!--<input type="button" name="btn" id="btn1" value="显示并改变颜色"/>-->
+</body>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $("#btn").click(function () {
+        $("div:hidden").css({
+           "display":"block",
+           "background-color":"cadetblue"
+        });
+    });
+</script>
+</html>

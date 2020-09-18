@@ -3,15 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>登录界面</title>
+    <style>
+        div{
+            float: left;
+        }
+        th{
+            font-size: 18px;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            align-content: center;
+            width: 300px;
+            height: 180px;
+            border: solid 1px gray;
+            background: url("image/bg1.jpg") repeat;
+        }
+        #submit{
+            width: 101px;
+            height: 32px;
+            background: url("image/regbtn.jpg");
+            /*margin-bottom: 0px;*/
+            /*margin-left: 90px;*/
+        }
+        input{
+            width: 150px;
+            height: 32px;
+            border-radius: 5px;
+            border: 1px solid black;
+
+
+        }
+        #username{
+            background-image: url("image/head.png");
+            background-repeat: no-repeat;
+            padding-left: 35px;
+
+        }
+        #pwd{
+            background-image: url("image/keyboard.png");
+            background-repeat: no-repeat;
+            padding-left: 35px;
+        }
+        tr>td{
+            text-align: center;
+            font-size: 14px;
+        }
+        #username:hover, #pwd:hover {
+            border: 1px dashed orange;
+        }
+
+        #username:focus, #pwd:focus {
+            background-color: lightyellow;
+        }
+
+    </style>
 </head>
 <body>
 <form action="#" method="get">
+    <div class="dlogin">
     <table cellpadding="0">
         <tr><th colspan="2">用户登录</th></tr>
-        <tr><td>用户名：<input type="text" name="username"/></td></tr>
-        <tr></tr>
-        <tr></tr>
+        <tr>
+            <td>用户名：</td>
+            <td><input type="text" name="username" id="username"/></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input  type="password" name="pwd" id="pwd"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="" name="submit" id="submit"/></td>
+        </tr>
     </table>
+    </div>
 </form>
 </body>
 </html>

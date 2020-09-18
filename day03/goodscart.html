@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+        div{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="checkbox" name="ch0" id="ch0" class="all">全选
+    <div id="ch">
+    <input type="checkbox" name="ch1" id="ch1" class="signal">选项1
+    <input type="checkbox" name="ch2" id="ch2" class="signal" >选项2
+    <input type="checkbox" name="ch3" id="ch3" class="signal">选项3
+    </div>
+    <input type="checkbox" name="ch4" id="ch4" class="reverse">反选
+</div>
+</body>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    //选中全选让ch1 2 3 也选中
+    var chbox = $("#ch").children(':checkbox');
+   $(".all").change(function () {
+        if ($(this).is(':checked')) {
+            // chbox.each(function () {
+            //     $(this).prop('checked', true);
+            $(".signal").prop("checked", true);
+        }
+        else {
+            $(".signal").prop("checked", false);
+        }
+   })
+    //单选检测
+    function checkAll(){
+       var ck = true;
+       $(".signal").each(function () {
+            var ch = $(this).prop("checked");
+            if (!ch){
+                ck = false;
+            }
+       })
+        $(".all").prop("checked",ck);
+    }
+    //单选检测
+    $(".signal").click(function () {
+        checkAll();
+    });
+    //反选
+   $(".reverse").change(function () {
+        if ($(this).is(':checked')){
+            chbox.each(function () {
+                if ($(this).is(':checked')){
+                    $(this).prop('checked',false);
+                }else {
+                    $(this).prop('checked',true);
+                }
+            })
+        }
+       checkAll();
+   })
+</script>
+</html>

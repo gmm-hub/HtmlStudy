@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table切换</title>
+    <style>
+        li{
+            list-style: none;
+            margin-left: 40px;
+            float: left;
+        }
+        .d{
+            width: 200px;
+            height: 200px;
+            clear: left;
+        }
+        .d1{
+            background-color: red;
+        }
+        .d2{
+            background-color: green;
+            display: none;
+        }
+        .d3{
+            background-color: blue;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+<div class="d d1"></div>
+<div class="d d2"></div>
+<div class="d d3"></div>
+</body>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $("li").click(function () {
+       var index = $(this).index();
+       var $div = $(".d").eq(index);
+
+       $(this).css({
+           "color":$div.css("background-color")
+       });
+       $("li").not($(this)).css({
+           "color":"black"
+       });
+
+       $div.show();
+       $(".d").not($div).hide();
+
+    })
+</script>
+</html>
