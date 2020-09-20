@@ -17,18 +17,17 @@
 </head>
 <body>
 <div class="sh">宇宙万岁</div>
-<input type="button" name="btn" id="btn" value="显示并改变颜色"/>
 <div class="hi">中国万岁</div>
 <div class="hi">世界万岁</div>
-<div class="hi">宇宙万岁</div>
+<input type="button" name="btn" id="btn" value="显示并改变颜色"/>
 <!--<input type="button" name="btn" id="btn1" value="显示并改变颜色"/>-->
 </body>
 <script src="js/jquery-1.11.0.min.js"></script>
 <script>
     $("#btn").click(function () {
-        $("div:hidden").css({
+        $("div:hidden").show(1000).css({
            "display":"block",
-           "background-color":"cadetblue"
+           "background-color":"cadetblue",
         });
     });
 </script>
