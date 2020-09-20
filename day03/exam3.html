@@ -11,11 +11,12 @@
 </body>
 <script src="js/jquery-1.11.0.min.js"></script>
 <script>
-    var a = new Array("a","b","c","d");
-    $("#array").change(function () {
-        $.each(a,function (i,m) {
+    var arr = new Array("a","b","c","d","e","f");
+    $("#array").click(function () {
+        $("#array").empty();
+        $.each(arr,function (i,m) {
             var $option = $("<option value='"+i+"'>"+m+"</option>");
-            $("#array").append($option);
+            $("#array").append($option)
         })
     });
 </script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 200px;
+            height: 300px;
+            border: 1px solid red;
+            text-align: left;
+        }
+        textarea{
+            width: 100px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <table class="comment" id="tab">
+        <tr>
+            <td>mary:</td>
+            <td>沙发</td>
+        </tr>
+    </table>
+<div>
+        昵称：<input type="text" name="name" id="username"><br/>
+        评论：<textarea name="comment" id="comment"></textarea><br>
+        <input type="button" name="btn" id="btn" value="评论"/>
+</div>
+</body>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $("#btn").click(function () {
+        var username = $("#username").val();
+        var comment = $("#comment").val();
+        var $add = $("<tr><td>"+username+":</td><td>"+comment+"</td></tr>");
+        $("#tab").append($add);
+    });
+
+
+</script>
+</html>
