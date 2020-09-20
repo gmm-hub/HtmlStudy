@@ -42,7 +42,7 @@
         #form{
             height: 500px;
             padding-top: 70px;
-            background-image: url(../img/regist_bg.jpg);
+            background-image: url(images/regist_bg.jpg);
             margin-bottom: 10px;
         }
         a{
@@ -50,7 +50,7 @@
         }
 
         label.error{
-            background:url(../img/unchecked.gif) no-repeat 10px 3px;
+            background:url(images/unchecked.gif) no-repeat 10px 3px;
             padding-left: 30px;
             font-family:georgia;
             font-size: 15px;
@@ -59,7 +59,7 @@
         }
 
         label.success{
-            background:url(img/checked.gif) no-repeat 10px 3px;
+            background:url(images/checked.gif) no-repeat 10px 3px;
             padding-left: 30px;
         }
 
@@ -81,10 +81,10 @@
 <div id="contanier">
     <div id="top">
         <div class="top">
-            <img src="../img/logo.png" height="47px"/>
+            <img src="images/logo.png" height="47px"/>
         </div>
         <div class="top">
-            <img src="../img/header.png" height="45px" />
+            <img src="images/header.png" height="45px" />
         </div>
         <div class="top" id="top1">
             <a href="#">登录</a>
@@ -176,7 +176,7 @@
 											<em style="color: red;">*</em>&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="男"/>男
 											<input type="radio" name="sex" value="女"/>女<em></em>
 										</span>
-                                <label for="sex" class="error" style="display: none;"></label>
+                                <label  class="error" style="display: none;"></label>
                             </td>
                         </tr>
                         <tr>
@@ -207,7 +207,7 @@
         </form>
     </div>
     <div>
-        <img src="../img/footer.jpg"  width="100%"/>
+        <img src="images/footer.jpg"  width="100%"/>
     </div>
     <div id="bottom">
         <a href="#">关于我们</a>
@@ -225,5 +225,80 @@
     </div>
 </div>
 </body>
-<
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script>
+    /* 通过选择器找到表单，给指定表单添加校验事件 */
+    $("#registForm").validate({
+
+        /* 校验规则 */
+        rules:{
+            /* input中的name值:{ 校验规则:校验值 } */
+            user:{
+                required:true
+            },
+            password:{
+                required:true,
+                minlength:6,
+                digits:true
+            },
+            repassword:{
+                required:true,
+                equalTo:"[name='password']"
+            },
+            email:{
+                required:true,
+                email: true
+            },
+            username:{
+                required:true
+            },
+            sex:{
+                required:true
+            },
+            birthday:{
+                required:true,
+                date:true
+            }
+        },
+
+        /* 校验信息 */
+        messages:{
+            /* input中的name值:{ 校验规则:校验信息 } */
+            user:{
+                required:"用户名不能为空"
+            },
+            password:{
+                required:"密码不能为空",
+                minlength:"密码长度至少是6位",
+                digits:"密码必须是数字"
+            },
+            repassword:{
+                required:"重复密码不能为空",
+                equalTo:"两次密码必须一致"
+            },
+            email:{
+                required:"邮箱不能为空",
+                email: "邮箱格式必须正确"
+            },
+            username:{
+                required:"真实姓名不能为空"
+            },
+            sex:{
+                required:"性别不能为空"
+            },
+            birthday:{
+                required:"生日不能为空",
+                date:"生日格式必须正确"
+            }
+        },
+
+        //当校验成功后执行回调函数，让class="success"生效
+        success:function (label) {
+            //将标签中的错误信息清空
+            label.text("").addClass("success");
+        }
+
+    });
+</script>
 </html>
